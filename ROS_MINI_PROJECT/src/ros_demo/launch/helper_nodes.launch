@@ -1,0 +1,9 @@
+<launch>
+  <param name="/use_sim_time" value="true"/>
+   <param name="/0.2" value="0.2"/>
+ <node pkg="ros_demo" type="state_publisher.py" name="state_publisher.py"/>
+
+   <node pkg="scan_point_cloud" type="scan2pcl1" name="scan2pcl1"/>
+ 
+
+</launch>

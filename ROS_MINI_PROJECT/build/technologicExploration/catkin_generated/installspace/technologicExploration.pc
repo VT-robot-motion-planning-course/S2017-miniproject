@@ -1,0 +1,8 @@
+prefix=/home/aravind/ROS_MINI_PROJECT/install
+
+Name: technologicExploration
+Description: Description of technologicExploration
+Version: 0.0.0
+Cflags: 
+Libs: -L/home/aravind/ROS_MINI_PROJECT/install/lib 
+Requires: 

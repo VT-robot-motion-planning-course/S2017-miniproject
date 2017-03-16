@@ -1,0 +1,8 @@
+prefix=/home/aravind/ROS_MINI_PROJECT/install
+
+Name: gazebo_exploration
+Description: Description of gazebo_exploration
+Version: 0.0.0
+Cflags: 
+Libs: -L/home/aravind/ROS_MINI_PROJECT/install/lib 
+Requires: 

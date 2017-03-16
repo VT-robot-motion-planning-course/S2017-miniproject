@@ -1,0 +1,2 @@
+launch-files/p3dx_control:launch-files/p3dx_description:launch-files/p3dx_gazebo:ros_demo:scan_point_cloud
+-DCATKIN_DEVEL_PREFIX=/home/aravind/ROS_MINI_PROJECT/devel -DCMAKE_INSTALL_PREFIX=/home/aravind/ROS_MINI_PROJECT/install -G Unix Makefiles

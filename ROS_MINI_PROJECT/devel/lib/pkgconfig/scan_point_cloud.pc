@@ -1,0 +1,8 @@
+prefix=/home/aravind/ROS_MINI_PROJECT/devel
+
+Name: scan_point_cloud
+Description: Description of scan_point_cloud
+Version: 0.0.0
+Cflags: 
+Libs: -L/home/aravind/ROS_MINI_PROJECT/devel/lib 
+Requires: roscpp rospy std_msgs message_runtime geometry_msgs sensor_msgs

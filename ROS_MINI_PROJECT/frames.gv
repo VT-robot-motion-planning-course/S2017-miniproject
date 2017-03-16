@@ -1,0 +1,17 @@
+digraph G {
+"odom" -> "base_link"[label="Broadcaster: /gazebo\nAverage rate: 100.202 Hz\nMost recent transform: 191.591 ( 0.007 sec old)\nBuffer length: 4.940 sec\n"];
+"base_link" -> "front_sonar"[label="Broadcaster: /robot_state_publisher\nAverage rate: 50.203 Hz\nMost recent transform: 192.072 ( -0.474 sec old)\nBuffer length: 4.920 sec\n"];
+"p3dx_left_wheel" -> "p3dx_left_hubcap"[label="Broadcaster: /robot_state_publisher\nAverage rate: 50.203 Hz\nMost recent transform: 192.072 ( -0.474 sec old)\nBuffer length: 4.920 sec\n"];
+"base_link" -> "p3dx_left_wheel"[label="Broadcaster: /robot_state_publisher\nAverage rate: 10.208 Hz\nMost recent transform: 191.509 ( 0.089 sec old)\nBuffer length: 4.800 sec\n"];
+"p3dx_right_wheel" -> "p3dx_right_hubcap"[label="Broadcaster: /robot_state_publisher\nAverage rate: 50.203 Hz\nMost recent transform: 192.072 ( -0.474 sec old)\nBuffer length: 4.920 sec\n"];
+"base_link" -> "p3dx_right_wheel"[label="Broadcaster: /robot_state_publisher\nAverage rate: 10.208 Hz\nMost recent transform: 191.509 ( 0.089 sec old)\nBuffer length: 4.800 sec\n"];
+"base_link" -> "top_plate"[label="Broadcaster: /robot_state_publisher\nAverage rate: 50.203 Hz\nMost recent transform: 192.072 ( -0.474 sec old)\nBuffer length: 4.920 sec\n"];
+"center_wheel" -> "center_hubcap"[label="Broadcaster: /robot_state_publisher\nAverage rate: 50.203 Hz\nMost recent transform: 192.072 ( -0.474 sec old)\nBuffer length: 4.920 sec\n"];
+"swivel" -> "center_wheel"[label="Broadcaster: /robot_state_publisher\nAverage rate: 10.208 Hz\nMost recent transform: 191.509 ( 0.089 sec old)\nBuffer length: 4.800 sec\n"];
+"base_link" -> "lms100"[label="Broadcaster: /robot_state_publisher\nAverage rate: 50.203 Hz\nMost recent transform: 192.072 ( -0.474 sec old)\nBuffer length: 4.920 sec\n"];
+"base_link" -> "swivel"[label="Broadcaster: /robot_state_publisher\nAverage rate: 10.208 Hz\nMost recent transform: 191.509 ( 0.089 sec old)\nBuffer length: 4.800 sec\n"];
+edge [style=invis];
+ subgraph cluster_legend { style=bold; color=black; label ="view_frames Result";
+"Recorded at time: 191.598"[ shape=plaintext ] ;
+ }->"odom";
+}
