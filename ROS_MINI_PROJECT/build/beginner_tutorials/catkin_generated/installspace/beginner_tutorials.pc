@@ -1,8 +1,0 @@
-prefix=/home/aravind/ROS_MINI_PROJECT/install
-
-Name: beginner_tutorials
-Description: Description of beginner_tutorials
-Version: 0.0.0
-Cflags: -I/home/aravind/ROS_MINI_PROJECT/install/include
-Libs: -L/home/aravind/ROS_MINI_PROJECT/install/lib 
-Requires: roscpp rospy std_msgs message_runtime geometry_msgs sensor_msgs

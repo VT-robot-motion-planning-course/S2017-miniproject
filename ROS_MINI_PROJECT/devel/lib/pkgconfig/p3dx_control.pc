@@ -1,8 +1,0 @@
-prefix=/home/aravind/ROS_MINI_PROJECT/devel
-
-Name: p3dx_control
-Description: Description of p3dx_control
-Version: 0.0.1
-Cflags: 
-Libs: -L/home/aravind/ROS_MINI_PROJECT/devel/lib 
-Requires: 

@@ -1,8 +1,0 @@
-prefix=/home/aravind/ROS_MINI_PROJECT/devel
-
-Name: laser_geometry
-Description: Description of laser_geometry
-Version: 1.6.4
-Cflags: -I/home/aravind/ROS_MINI_PROJECT/src/laser_geometry/include -I/usr/include -I/usr/include/eigen3
-Libs: -L/home/aravind/ROS_MINI_PROJECT/devel/lib -llaser_geometry -l:/usr/lib/x86_64-linux-gnu/libboost_system.so -l:/usr/lib/x86_64-linux-gnu/libboost_thread.so -l:/usr/lib/x86_64-linux-gnu/libpthread.so
-Requires: 
