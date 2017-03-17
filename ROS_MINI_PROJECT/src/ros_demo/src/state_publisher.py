@@ -61,7 +61,7 @@ def checkdir(goalX,goalY):
 				dist_from_rob=np.linalg.norm(rob-scan)
 				step=np.array((xStep,currY))
 				dist=np.linalg.norm(step-scan)
-				if(dist<0.1 and dist_from_rob<1.5):
+				if(dist<0.2 and dist_from_rob<1.5):
 					return np.inf
 			xStep+=0.1
 	if(goalY-currY==1):
@@ -73,7 +73,7 @@ def checkdir(goalX,goalY):
 				dist_from_rob=np.linalg.norm(rob-scan)
 				step=np.array((currX,yStep))
 				dist=np.linalg.norm(step-scan)
-				if(dist<0.1 and dist_from_rob<1.5):
+				if(dist<0.2 and dist_from_rob<1.5):
 					return np.inf
 			yStep+=0.1
 	if(goalX-currX==-1):
@@ -85,7 +85,7 @@ def checkdir(goalX,goalY):
 				dist_from_rob=np.linalg.norm(rob-scan)
 				step=np.array((xStep,currY))
 				dist=np.linalg.norm(step-scan)
-				if(dist<0.1 and dist_from_rob<1.5):
+				if(dist<0.2 and dist_from_rob<1.5):
 					return np.inf
 			xStep-=0.1
 	if(goalY-currY==-1):
@@ -97,7 +97,7 @@ def checkdir(goalX,goalY):
 				dist_from_rob=np.linalg.norm(rob-scan)
 				step=np.array((currX,yStep))
 				dist=np.linalg.norm(step-scan)
-				if(dist<0.1 and dist_from_rob<1.5):
+				if(dist<0.2 and dist_from_rob<1.5):
 					return np.inf
 			yStep-=0.1
 	return 1

@@ -340,9 +340,9 @@
       <pose>4 3.56031 0 0 -0 0</pose>
     </model>
     <state world_name='default'>
-      <sim_time>180 972000000</sim_time>
-      <real_time>181 929826681</real_time>
-      <wall_time>1489429417 855801877</wall_time>
+      <sim_time>246 604000000</sim_time>
+      <real_time>65 988173359</real_time>
+      <wall_time>1489771845 754740685</wall_time>
       <model name='dStar'>
         <pose>-0.328202 -0.997107 0 0 -0 0</pose>
         <link name='Wall_19'>
@@ -385,6 +385,15 @@
           <wrench>0 0 0 0 -0 0</wrench>
         </link>
       </model>
+      <model name='grey_wall_0'>
+        <pose>5 4.51147 0 0 -0 0</pose>
+        <link name='link'>
+          <pose>5 4.51147 1.4 0 -0 0</pose>
+          <velocity>0 0 0 0 -0 0</velocity>
+          <acceleration>0 0 0 0 -0 0</acceleration>
+          <wrench>0 0 0 0 -0 0</wrench>
+        </link>
+      </model>
       <model name='ground_plane'>
         <pose>0 0 0 0 -0 0</pose>
         <link name='link'>
@@ -397,9 +406,55 @@
     </state>
     <gui fullscreen='0'>
       <camera name='user_camera'>
-        <pose>3.29384 0.784538 19.1889 4e-06 1.5698 2.9442</pose>
+        <pose>3.33394 -1.40515 21.7516 4e-06 1.5698 2.9442</pose>
         <view_controller>orbit</view_controller>
       </camera>
     </gui>
+    <model name='grey_wall_0'>
+      <static>1</static>
+      <link name='link'>
+        <pose>0 0 1.4 0 -0 0</pose>
+        <collision name='collision'>
+          <geometry>
+            <box>
+              <size>7.5 0.2 2.8</size>
+            </box>
+          </geometry>
+          <max_contacts>10</max_contacts>
+          <surface>
+            <bounce/>
+            <friction>
+              <ode/>
+            </friction>
+            <contact>
+              <ode/>
+            </contact>
+          </surface>
+        </collision>
+        <visual name='visual'>
+          <cast_shadows>0</cast_shadows>
+          <geometry>
+            <box>
+              <size>7.5 0.2 2.8</size>
+            </box>
+          </geometry>
+          <material>
+            <script>
+              <uri>model://grey_wall/materials/scripts</uri>
+              <uri>model://grey_wall/materials/textures</uri>
+              <name>vrc/grey_wall</name>
+            </script>
+          </material>
+        </visual>
+        <velocity_decay>
+          <linear>0</linear>
+          <angular>0</angular>
+        </velocity_decay>
+        <self_collide>0</self_collide>
+        <kinematic>0</kinematic>
+        <gravity>1</gravity>
+      </link>
+      <pose>5 4.51147 0 0 -0 0</pose>
+    </model>
   </world>
 </sdf>
