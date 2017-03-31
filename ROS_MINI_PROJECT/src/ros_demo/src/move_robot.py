@@ -53,8 +53,6 @@ def move(goalX,goalY):
 		twist.angular.z = error
 		twist.linear.x = 0.1
 		p.publish(twist)
-
-		#p.publish(twist)
 		rospy.loginfo("Moving")
 		rospy.sleep(0.1)
 
