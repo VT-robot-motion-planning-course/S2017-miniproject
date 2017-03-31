@@ -8,51 +8,13 @@ import numpy as np
 from std_msgs.msg import String
 from sensor_msgs.msg import PointCloud
 
-# class Point:
-# 	x = 0.0
-# 	y = 0.0
-
-
-# def onSegment(p,q,r):
-# 	if(q.x <= math.max(p.x, r.x) and q.x >= math.min(p.x, r.x) and q.y <= math.max(p.y, r.y) and q.y >= math.min(p.y, r.y)):
-# 		return True
-# 	return False
-
-# def orientation(p,q,r):
-# 	val = (q.y - p.y) * (r.x - q.x) - (q.x - p.x) * (r.y - q.y)
-# 	if(val==0):
-# 		return 0
-# 	if(val>0):
-# 		return 1
-# 	return 2
-
-
-# def doIntersect(p1,q1,p2,q2):
-# 	o1=orientation(p1,q1,p2)
-# 	o2=orientation(p1,q1,q2)
-# 	o3=orientation(p2,q2,p1)
-# 	o4=orientation(p2,q2,q1)
-	
-# 	if(o1 != o2 and o3 != o4):
-# 		return True
-
-# 	if (o1 == 0 and onSegment(p1, p2, q1)):
-# 		return True
-
-# 	if (o2 == 0 and onSegment(p1, q2, q1)):
-# 		return True
-# 	if (o3 == 0 and onSegment(p2, p1, q2)):
-# 		return True
-# 	if (o4 == 0 and onSegment(p2, q1, q2)):
-# 		return True
-# 	return False
-
 def checkdir(goalX,goalY):
 	msg= rospy.wait_for_message('/my_cloud', PointCloud)
 	od= rospy.wait_for_message('/odom', Odometry)
+	grid_step = rospy.get_param('/grid_step')
 	currX = int(round(od.pose.pose.position.x))
 	currY = int(round(od.pose.pose.position.y))
-	if(goalX-currX==1):
+	if(goalX-currX==grid_step):
 		xStep=float(currX)+0.1
 		while(xStep<=goalX):
 			for pt in msg.points:
@@ -64,7 +26,7 @@ def checkdir(goalX,goalY):
 				if(dist<0.2 and dist_from_rob<1.5):
 					return np.inf
 			xStep+=0.1
-	if(goalY-currY==1):
+	if(goalY-currY==grid_step):
 		yStep=float(currY)+0.1
 		while(yStep<=goalY):
 			for pt in msg.points:
@@ -76,7 +38,7 @@ def checkdir(goalX,goalY):
 				if(dist<0.2 and dist_from_rob<1.5):
 					return np.inf
 			yStep+=0.1
-	if(goalX-currX==-1):
+	if(goalX-currX==-grid_step):
 		xStep=float(currX)-0.1
 		while(xStep>=goalX):
 			for pt in msg.points:
@@ -88,7 +50,7 @@ def checkdir(goalX,goalY):
 				if(dist<0.2 and dist_from_rob<1.5):
 					return np.inf
 			xStep-=0.1
-	if(goalY-currY==-1):
+	if(goalY-currY==-grid_step):
 		yStep=float(currY)-0.1
 		while(yStep>=goalY):
 			for pt in msg.points:
@@ -102,16 +64,21 @@ def checkdir(goalX,goalY):
 			yStep-=0.1
 	return 1
 def getNodeNumber(currX,currY):
+	grid_size_x = rospy.get_param('/grid_size_x')
+	grid_size_y = rospy.get_param('/grid_size_y')
+	grid_step = rospy.get_param('/grid_step') 
 	node_number = 1
-	node_number += currX*7
-	node_number += currY
+	node_number += (currX*grid_size_y)/grid_step
+	node_number += currY/grid_step
 	return node_number
 
 if __name__ == '__main__':
 	rospy.init_node('dstar')
 	print("initialized")
-	rospy.set_param('/radius', '0.2')
 	rad = rospy.get_param('/radius')
+	grid_size_x = rospy.get_param('/grid_size_x')
+	grid_size_y = rospy.get_param('/grid_size_y')
+	grid_step = rospy.get_param('/grid_step') 
 	while not rospy.is_shutdown():
 		msg= rospy.wait_for_message('/odom', Odometry)
 		currX = int(round(msg.pose.pose.position.x))
@@ -133,34 +100,22 @@ if __name__ == '__main__':
 			node_number=getNodeNumber(currX,currY)
 			while(dir<4):
 				ret=0
-				if(dir==0 and currY<7):
-					if(currY>=7):
-						ret=0
-					else:
-						ret=checkdir(currX,currY+1)
-						goalX=currX
-						goalY=currY+1
-				elif(dir==1 and currX<8):
-					if(currX>=8):
-						ret=0
-					else:	
-						ret=checkdir(currX+1,currY)
-						goalX=currX+1
-						goalY=currY
+				if(dir==0 and currY<grid_size_y):
+					ret=checkdir(currX,currY+1)
+					goalX=currX
+					goalY=currY+1
+				elif(dir==1 and currX<grid_size_x):
+					ret=checkdir(currX+1,currY)
+					goalX=currX+1
+					goalY=currY
 				elif(dir==2 and currY>0):
-					if(currY<=0):
-						ret = 0
-					else:
-						ret=checkdir(currX,currY-1)
-						goalX=currX
-						goalY=currY-1
+					ret=checkdir(currX,currY-1)
+					goalX=currX
+					goalY=currY-1
 				elif(dir==3 and currX>0):
-					if(currX<=0):
-						ret=0
-					else:
-						ret=checkdir(currX-1,currY)
-						goalX=currX-1
-						goalY=currY
+					ret=checkdir(currX-1,currY)
+					goalX=currX-1
+					goalY=currY
 				if(ret != 0):
 					edge_costs+=str(getNodeNumber(currX,currY))
 					edge_costs+="	"

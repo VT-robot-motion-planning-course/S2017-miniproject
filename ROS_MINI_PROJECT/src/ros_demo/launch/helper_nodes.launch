@@ -1,6 +1,11 @@
 <launch>
   <param name="/use_sim_time" value="true"/>
-   <param name="/0.2" value="0.2"/>
+   <param name="/radius" value="0.2"/>
+   <param name="/grid_size_x" value="8"/>
+   <param name="/grid_size_y" value="7"/>
+   <param name="/grid_step" value="1"/>
+   
+   , , 
  <node pkg="ros_demo" type="state_publisher.py" name="state_publisher.py"/>
 
    <node pkg="scan_point_cloud" type="scan2pcl1" name="scan2pcl1"/>
