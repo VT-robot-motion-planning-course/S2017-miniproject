@@ -11,19 +11,21 @@ from std_msgs.msg import Int32
 
 def getXY(node_number):
 	node_number-=1
-	grid_size_x = rospy.get_param('/grid_size_x')
-	grid_size_y = rospy.get_param('/grid_size_y')
+	grid_size_x = rospy.get_param('/grid_size_x') +1
+	grid_size_y = rospy.get_param('/grid_size_y') +1
 	grid_step = rospy.get_param('/grid_step') 
 	goalX=node_number/(grid_size_y*grid_step)
 	goalY=node_number%(grid_size_y*grid_step)
 	return goalX,goalY
 
 def move(goalX,goalY):
+	print("function called")
 	kP = 0.75
 	tolerence = 0.1
 	print(goalX)
 	print(goalY)
 	p = rospy.Publisher('/cmd_vel', Twist)
+	pub2 = rospy.Publisher('/goal_feedback', String)
 	while(True):
 		msg= rospy.wait_for_message('/odom', Odometry)
 		(roll, pitch, yaw) = tf.transformations.euler_from_quaternion([msg.pose.pose.orientation.x, msg.pose.pose.orientation.y, msg.pose.pose.orientation.z, msg.pose.pose.orientation.w])
@@ -49,6 +51,8 @@ def move(goalX,goalY):
 			twist.angular.z = 0
 			twist.linear.x = 0
 			p.publish(twist)
+			data="Goal Reached"
+			pub2.publish(data)
 			return	
 		twist.angular.z = error
 		twist.linear.x = 0.1

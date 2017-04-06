@@ -64,8 +64,8 @@ def checkdir(goalX,goalY):
 			yStep-=0.1
 	return 1
 def getNodeNumber(currX,currY):
-	grid_size_x = rospy.get_param('/grid_size_x')
-	grid_size_y = rospy.get_param('/grid_size_y')
+	grid_size_x = rospy.get_param('/grid_size_x') +1
+	grid_size_y = rospy.get_param('/grid_size_y') +1
 	grid_step = rospy.get_param('/grid_step') 
 	node_number = 1
 	node_number += (currX*grid_size_y)/grid_step
@@ -76,8 +76,8 @@ if __name__ == '__main__':
 	rospy.init_node('dstar')
 	print("initialized")
 	rad = rospy.get_param('/radius')
-	grid_size_x = rospy.get_param('/grid_size_x')
-	grid_size_y = rospy.get_param('/grid_size_y')
+	grid_size_x = rospy.get_param('/grid_size_x') +1
+	grid_size_y = rospy.get_param('/grid_size_y') +1
 	grid_step = rospy.get_param('/grid_step') 
 	while not rospy.is_shutdown():
 		msg= rospy.wait_for_message('/odom', Odometry)
