@@ -100,11 +100,11 @@ if __name__ == '__main__':
 			node_number=getNodeNumber(currX,currY)
 			while(dir<4):
 				ret=0
-				if(dir==0 and currY<grid_size_y):
+				if(dir==0 and currY<grid_size_y-1):
 					ret=checkdir(currX,currY+1)
 					goalX=currX
 					goalY=currY+1
-				elif(dir==1 and currX<grid_size_x):
+				elif(dir==1 and currX<grid_size_x-1):
 					ret=checkdir(currX+1,currY)
 					goalX=currX+1
 					goalY=currY
