@@ -25,7 +25,6 @@ def move(goalX,goalY):
 	print(goalX)
 	print(goalY)
 	p = rospy.Publisher('/cmd_vel', Twist)
-	pub2 = rospy.Publisher('/goal_feedback', String)
 	while(True):
 		msg= rospy.wait_for_message('/odom', Odometry)
 		(roll, pitch, yaw) = tf.transformations.euler_from_quaternion([msg.pose.pose.orientation.x, msg.pose.pose.orientation.y, msg.pose.pose.orientation.z, msg.pose.pose.orientation.w])
@@ -51,8 +50,6 @@ def move(goalX,goalY):
 			twist.angular.z = 0
 			twist.linear.x = 0
 			p.publish(twist)
-			data="Goal Reached"
-			pub2.publish(data)
 			return	
 		twist.angular.z = error
 		twist.linear.x = 0.1
