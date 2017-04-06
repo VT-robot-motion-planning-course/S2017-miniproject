@@ -340,9 +340,9 @@
       <pose>4 3.56031 0 0 -0 0</pose>
     </model>
     <state world_name='default'>
-      <sim_time>246 604000000</sim_time>
-      <real_time>65 988173359</real_time>
-      <wall_time>1489771845 754740685</wall_time>
+      <sim_time>275 323000000</sim_time>
+      <real_time>28 863401666</real_time>
+      <wall_time>1491508099 278485289</wall_time>
       <model name='dStar'>
         <pose>-0.328202 -0.997107 0 0 -0 0</pose>
         <link name='Wall_19'>
@@ -377,9 +377,9 @@
         </link>
       </model>
       <model name='grey_wall'>
-        <pose>2.8405 0.72696 0 0 -0 0</pose>
+        <pose>2.73255 0.499022 0 0 -0 0</pose>
         <link name='link'>
-          <pose>2.8405 0.72696 1.4 0 -0 0</pose>
+          <pose>2.73255 0.499022 1.4 0 -0 0</pose>
           <velocity>0 0 0 0 -0 0</velocity>
           <acceleration>0 0 0 0 -0 0</acceleration>
           <wrench>0 0 0 0 -0 0</wrench>
@@ -406,7 +406,7 @@
     </state>
     <gui fullscreen='0'>
       <camera name='user_camera'>
-        <pose>3.33394 -1.40515 21.7516 4e-06 1.5698 2.9442</pose>
+        <pose>5.74856 -0.103332 15.2364 4e-06 1.5698 2.9442</pose>
         <view_controller>orbit</view_controller>
       </camera>
     </gui>

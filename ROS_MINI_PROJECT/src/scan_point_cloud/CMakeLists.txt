@@ -9,7 +9,6 @@ find_package(catkin REQUIRED COMPONENTS
   rospy
   std_msgs
   laser_geometry
-  occupancy_grid_utils
   PCL
 )
 

@@ -18,10 +18,11 @@ def getXY(node_number):
 	goalY=node_number%(grid_size_y*grid_step)
 	return goalX,goalY
 
-def move(goalX,goalY):
-	print("function called")
+def callback(data):
+	print("callback called")
+	goalX,goalY=getXY(data.data)
 	kP = 0.75
-	tolerence = 0.1
+	tolerence = rospy.get_param('/radius')
 	print(goalX)
 	print(goalY)
 	p = rospy.Publisher('/cmd_vel', Twist)
@@ -61,10 +62,8 @@ if __name__ == '__main__':
 	rospy.init_node('move_robot')
 	print("initialized")
 	while not rospy.is_shutdown():
-		msg= rospy.wait_for_message('/goal', Int32)
-		goalX,goalY=getXY(msg.data)
-		move(goalX,goalY)
-		rospy.sleep(1.0)
+		rospy.Subscriber("/goal", Int32, callback)
+		rospy.sleep(2.0)
 
 
 
