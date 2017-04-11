@@ -22,6 +22,6 @@ http://wiki.ros.org/joy/Tutorials/ConfiguringALinuxJoystick
 
 http://wiki.ros.org/hokuyo_node/Troubleshooting
 
-![alt tag](https://github.com/VT-robot-motion-planning-course/S2017-miniproject/tree/master/images/joystick.jpg)
+![alt tag](https://github.com/VT-robot-motion-planning-course/S2017-miniproject/blob/master/images/joystick.jpg?raw=true)
 
 
