@@ -1,4 +1,8 @@
 # S2017-miniproject
+
+Signup sheet : https://goo.gl/forms/SJ2csn9FD7dBqQ4Q2
+
+
 Please run rosdep install --from-paths src --ignore-src --rosdistro=indigo -y.
 
 It should work this time, trust me!
@@ -23,6 +27,11 @@ http://wiki.ros.org/joy/Tutorials/ConfiguringALinuxJoystick
 http://wiki.ros.org/hokuyo_node/Troubleshooting
 
 ###HARDWARE###
+
+One of the robots has an intel nuc hooked up to the robot, for the other one you can use your own laptop. You may choose to work on either one.
+
+Steps for connecting the robot to your laptop:
+
 
 Firstly, you would need to connect the robot to your computer.
 ![alt tag](https://cloud.githubusercontent.com/assets/10512647/24928478/91e10dac-1ed0-11e7-846d-e5750e42752a.jpg)
