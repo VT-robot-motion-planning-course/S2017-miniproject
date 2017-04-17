@@ -1,0 +1,47 @@
+<launch>
+    <param name="box_description"
+    command="$(find xacro)/xacro.py '$(find p3dx_description)/urdf/mybot.xacro'" />
+
+  <!-- BEGIN BOX 1-->
+<group ns="box1">
+    <include file="$(find p3dx_gazebo)/launch/one_box.launch" >
+      <arg name="init_pose" value="-x 5 -y -4 -z 0" />
+      <arg name="robot_name"  value="Box1" />
+    </include>
+</group>
+
+<group ns="box2">
+    <include file="$(find p3dx_gazebo)/launch/one_box.launch" >
+      <arg name="init_pose" value="-x 4 -y -6.5 -z 0 " />
+      <arg name="robot_name"  value="Box2" />
+    </include>
+</group>
+
+<group ns="box3">
+    <include file="$(find p3dx_gazebo)/launch/one_box.launch" >
+      <arg name="init_pose" value="-x 2 -y 5 -z 0" />
+      <arg name="robot_name"  value="Box3" />
+    </include>
+</group>
+<group ns="box4">
+    <include file="$(find p3dx_gazebo)/launch/one_box.launch" >
+      <arg name="init_pose" value="-x 25 -y 1 -z 0" />
+      <arg name="robot_name"  value="Box4" />
+    </include>
+</group>
+
+<group ns="box5">
+    <include file="$(find p3dx_gazebo)/launch/one_box.launch" >
+      <arg name="init_pose" value="-x 37 -y 12 -z 0 -w" />
+      <arg name="robot_name"  value="Box5" />
+    </include>
+</group>
+
+<group ns="box6">
+    <include file="$(find p3dx_gazebo)/launch/one_box.launch" >
+      <arg name="init_pose" value="-x 25 -y 3 -z 0" />
+      <arg name="robot_name"  value="Box6" />
+    </include>
+</group>
+
+</launch>

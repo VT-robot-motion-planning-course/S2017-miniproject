@@ -1,0 +1,8 @@
+<launch>
+ <node pkg="ros_demo" type="box1.py" name="box1"/>
+ <node pkg="ros_demo" type="box2.py" name="box2"/>
+  <node pkg="ros_demo" type="box3.py" name="box3"/>
+  <node pkg="ros_demo" type="box4.py" name="box4"/>
+  <node pkg="ros_demo" type="box5.py" name="box5"/>
+  <node pkg="ros_demo" type="box6.py" name="box6"/>
+</launch>

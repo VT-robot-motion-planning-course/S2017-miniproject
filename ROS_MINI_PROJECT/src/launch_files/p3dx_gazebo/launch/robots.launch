@@ -1,0 +1,11 @@
+<launch>
+    <param name="robot_description"
+    command="$(find xacro)/xacro.py '$(find p3dx_description)/urdf/pioneer3dx.xacro'" />
+
+  <!-- BEGIN ROBOT 1-->
+    <include file="$(find p3dx_gazebo)/launch/one_robot.launch" >
+      <arg name="init_pose" value="-x 0 -y 0 -z 0" />
+      <arg name="robot_name"  value="Robot1" />
+    </include>
+
+</launch>
