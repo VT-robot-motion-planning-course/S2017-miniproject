@@ -23,7 +23,7 @@ int main(int argc, char **argv)
  
         // create publisher
  
-        ros::Publisher cmd_vel_topic = n.advertise<geometry_msgs::Twist>("/RosAria/cmd_vel", 1000);
+        ros::Publisher cmd_vel_topic = n.advertise<geometry_msgs::Twist>("/cmd_vel", 1000);
  
         pioneer_vel = cmd_vel_topic;
  
